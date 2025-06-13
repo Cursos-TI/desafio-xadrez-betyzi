@@ -60,5 +60,8 @@ printf("Desafio Movimentos das Peças de Xadrez!✨♟️\n");
     // Depois de andar 2 pra baixo, ele vai 1 pra esquerda
     printf("Esquerda\n");
 
-        return 0;
+    printf("Novo commit2\n");
+
+         return 0;
 }
+
