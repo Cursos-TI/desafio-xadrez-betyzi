@@ -86,6 +86,8 @@ int main() {
     // Movimento complexo do Cavalo com loops aninhados e controle de fluxo
     moverCavalo();
 
+printf("Novo commit3\n");
+
     return 0;
 }
 
