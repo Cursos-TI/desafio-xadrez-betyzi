@@ -4,64 +4,90 @@
 // Este código inicial serve como base para o desenvolvimento do sistema de movimentação das peças de xadrez.
 // O objetivo é utilizar estruturas de repetição e funções para determinar os limites de movimentação dentro do jogo.
 
-int main() {
+  //Começamos com as funções recursivas:
 
-    // Aprimorei o código colocando agora a estrutura para imprimir o movimento do cavalo
+// ----------------------------
+// Função recursiva da TORRE
+// ----------------------------
+void moverTorre(int casas) {
+    if (casas == 0) return;
+    printf("Direita\n");
+    moverTorre(casas - 1); 
+}
 
-printf("Desafio Movimentos das Peças de Xadrez!✨♟️\n");
+// ----------------------------
+// Função recursiva da RAINHA
+// ----------------------------
+void moverRainha(int casas) {
+    if (casas == 0) return;
+    printf("Esquerda\n");
+    moverRainha(casas - 1);
+}
 
-    // ----------------------------
-    // TORRE - movimento com 'for'
-    // ----------------------------
-    // A torre vai andar 5 casas para a direita
-    printf("Movimento da Torre: 5 casas para a direita ➡️\n");
-    for (int i = 1; i <= 5; i++) {
-        printf("Direita\n");
-    }
+// ----------------------------
+// Função recursiva do BISPO
+// ----------------------------
+void moverBispoRecursivo(int casas) {
+    if (casas == 0) return;
+    printf("Cima Direita\n");
+    moverBispoRecursivo(casas - 1);
+}
 
-    // *****************************
-    // BISPO - movimento com 'while'
-    // *****************************
-    // O bispo vai andar 5 casas na diagonal: cima e direita
-    printf("\nMovimento do Bispo: 5 casas na diagonal ↗️\n");
-    int j = 1;
-    while (j <= 5) {
-        printf("Cima Direita\n");
-        j++;
-    }
-
-    // ------------------------------------
-    // RAINHA 👑 - movimento com 'do-while'
-    // ------------------------------------
-    // A rainha vai andar 8 casas para a esquerda
-    printf("\nMovimento da Rainha: 8 casas para esquerda 👑⬅️\n");
-    int k = 1;
-    do {
-        printf("Esquerda\n");
-        k++;
-    } while (k <= 8);
-
-    // **************************
-    // CAVALO - movimento em "L"
-    //***************************
-    // O cavalo vai andar 2 casas para baixo e 1 para a esquerda
-    printf("\nMovimento do Cavalo:  ⬇️ ⬅️\n");
-
-    for (int i = 0; i < 2; i++) {
-        printf("Baixo\n");
-
-        int j = 0;
-        while (j < 1) {
-            j++;
-
+// ----------------------------
+// BISPO com loops aninhados
+// ----------------------------
+void moverBispoComLoops(int vertical, int horizontal) {
+    for (int i = 1; i <= vertical; i++) {
+        for (int j = 1; j <= horizontal; j++) {
+            printf("Diagonal: Cima Direita (%d,%d)\n", i, j);
         }
     }
-
-    // Depois de andar 2 pra baixo, ele vai 1 pra esquerda
-    printf("Esquerda\n");
-
-    printf("Novo commit2\n");
-
-         return 0;
 }
+
+// ----------------------------
+// Movimento complexo do CAVALO
+// ----------------------------
+void moverCavalo() {
+    printf("\nMovimento do Cavalo: 🐴\n");
+
+    for (int i = 0; i < 3; i++) {
+        if (i < 2) {
+            printf("Cima\n");
+        } else {
+            printf("Direita\n");
+        }
+    }
+}
+
+  
+    // Por fim, a função principal
+
+int main() {
+
+   printf("Desafio Movimentos das Peças de Xadrez!✨♟️\n");
+
+    // Movimento da Torre usando recursividade
+    printf("Movimento da Torre:\n");
+    moverTorre(5);
+
+    // Movimento do Bispo com recursividade
+    printf("\nMovimento do Bispo (Recursivo):\n");
+    moverBispoRecursivo(5);
+
+    // Movimento do Bispo com loops aninhados
+    printf("\nMovimento do Bispo (Com Loops):\n");
+    moverBispoComLoops(2, 2); // exemplo: 2 verticais x 2 horizontais
+
+    // Movimento da Rainha com recursividade
+
+    printf("\nMovimento da Rainha 👑\n");
+    moverRainha(8);
+
+    // Movimento complexo do Cavalo com loops aninhados e controle de fluxo
+    moverCavalo();
+
+    return 0;
+}
+
+        
 
