@@ -39,5 +39,7 @@ int main() {
         k++;
     } while (k <= 8);
 
-    return 0;
+    printf("Novo commit1\n");
+    
+        return 0;
 }
